@@ -27,7 +27,7 @@
 							<p style="color: red; font-size: 10px; margin-top: 0;">全アクセスデータを削除します<br />※この操作はやり直しできません。</p>
 	                    </th>
 	                    <td>
-	                    	<input name="reset" class="button button-primary" type="submit" value="Reset All Count" onClick="window.alert('リセットしますか？')" >
+	                    	<input name="reset" class="button button-primary" type="submit" value="Reset All Count Data" onClick="window.alert('リセットしますか？')" >
 							<input type="hidden" name="action" value="reset" />
 	                    </td>
 	                </tr>
