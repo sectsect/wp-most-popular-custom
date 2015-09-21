@@ -1,7 +1,7 @@
 # WP Most Popular Custom
 
 
-### This Plugin based on WP Most Popular <https://github.com/MattGeri/WP-Most-Popular>
+### This Plugin based on [WP Most Popular](https://github.com/MattGeri/WP-Most-Popular)
 
 
 #### Installation
@@ -18,13 +18,13 @@
 	<ul>
 		<?php if (class_exists('WMP_system')): ?>
 			<?php
-				$rankposts = wmp_get_popular( array(
+				$wmpposts = wmp_get_popular( array(
 					'limit'		=> 5,
 					'post_type'	=> array('fair'),
 					'range'		=> get_option('wmp_range')
 				));
 				$i = 1;
-				if ( count( $rankposts ) > 0 ): foreach ( $rankposts as $post ): setup_postdata( $post );
+				if ( count( $wmpposts ) > 0 ): foreach ( $wmpposts as $post ): setup_postdata( $post );
 			?>
 				<li id="rank-<?php echo sprintf("%02d",$i); ?>">
 					<a href="<?php the_permalink(); ?>">
