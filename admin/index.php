@@ -6,8 +6,9 @@
 		<?php
 			function reset_count(){
 				global $wpdb;
+				$table = $wpdb->prefix.'most_popular';
 				$results = $wpdb->get_results("
-					TRUNCATE TABLE wp_most_popular
+					TRUNCATE TABLE ".$table."
 				");
 				return $results;
 			}
