@@ -100,38 +100,38 @@ if ( phpversion() > 5 ) {
 	/*==================================================
 		定期処理（隔週(2weeks)でランキング・アクセス数のリセット）
 	================================================== */
-	// イベントの作成
-	add_action('my_hourly_event', 'my_hourly_action');
-	function my_hourly_action() {
-		// ランキングのDBテーブルを空にする
-		global $wpdb;
-		$results = $wpdb->get_results("
-			TRUNCATE TABLE wp_most_popular
-		");
-		return $results;
-	}
-	// イベントの時間追加
-	add_filter('cron_schedules', 'my_interval');
-	function my_interval($schedules) {
-	//	date_default_timezone_set('Asia/Tokyo');
-		$schedules['biweekly'] = array(
-			'interval'	=> 7 * 24 * 60 * 60 * 2,		//	2 weeks
-		//	'interval'	=> 180,							//	For Test
-			'display'	=> 'Biweekly'
-		);
-		return $schedules;
-	}
-	function my_activation() {
-		// イベントが未登録なら登録する
-		if(!wp_next_scheduled('my_hourly_event')){
-			wp_schedule_event(time(), 'biweekly', 'my_hourly_event');
-		}
-	}
-	add_action('wp', 'my_activation');
-	// イベント排除
-	register_deactivation_hook(__FILE__, 'my_deactivation');
-	function my_deactivation() {
-		wp_clear_scheduled_hook('my_hourly_event');
-	}
+	// // イベントの作成
+	// add_action('my_hourly_event', 'my_hourly_action');
+	// function my_hourly_action() {
+	// 	// ランキングのDBテーブルを空にする
+	// 	global $wpdb;
+	// 	$results = $wpdb->get_results("
+	// 		TRUNCATE TABLE wp_most_popular
+	// 	");
+	// 	return $results;
+	// }
+	// // イベントの時間追加
+	// add_filter('cron_schedules', 'my_interval');
+	// function my_interval($schedules) {
+	// //	date_default_timezone_set('Asia/Tokyo');
+	// 	$schedules['biweekly'] = array(
+	// 		'interval'	=> 7 * 24 * 60 * 60 * 2,		//	2 weeks
+	// 	//	'interval'	=> 180,							//	For Test
+	// 		'display'	=> 'Biweekly'
+	// 	);
+	// 	return $schedules;
+	// }
+	// function my_activation() {
+	// 	// イベントが未登録なら登録する
+	// 	if(!wp_next_scheduled('my_hourly_event')){
+	// 		wp_schedule_event(time(), 'biweekly', 'my_hourly_event');
+	// 	}
+	// }
+	// add_action('wp', 'my_activation');
+	// // イベント排除
+	// register_deactivation_hook(__FILE__, 'my_deactivation');
+	// function my_deactivation() {
+	// 	wp_clear_scheduled_hook('my_hourly_event');
+	// }
 
 }
