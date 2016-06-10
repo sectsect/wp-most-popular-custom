@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h1>Setting Ranking<span style="font-size: 10px; padding-left: 12px;">- For WP MOST POPULAR CUSTOM -</span></h1>
+	<h1>Settings<span style="font-size: 10px; padding-left: 12px;">- WP MOST POPULAR CUSTOM -</span></h1>
 
 	<?php if(isset($_POST['reset'])): ?>
 		<span style="border: 2px solid #5bd535; border-radius: 5px; color: #888; padding: 3px 10px;">リセットしました</span>
@@ -24,7 +24,7 @@
 	            <tbody>
 	                <tr>
 	                    <th scope="row">
-	                        <label for="wmp_range" style="font-size: 14px; margin: 0;">アクセス数をリセット</label>
+	                        <label for="wmp_range" style="font-size: 14px; margin: 0;">Delete All Access Count</label>
 							<p style="color: red; font-size: 10px; margin-top: 0;">全アクセスデータを削除します<br />※この操作はやり直しできません。</p>
 	                    </th>
 	                    <td>
@@ -46,7 +46,7 @@
 	            <tbody>
 	                <tr>
 	                    <th scope="row">
-	                        <label for="wmp_range">レンジを選択してください：</label>
+	                        <label for="wmp_range">Date Range：</label>
 	                    </th>
 	                    <td>
 	                    	<select id="wmp_range" name="wmp_range">
