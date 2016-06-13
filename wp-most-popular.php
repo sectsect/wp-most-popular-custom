@@ -95,7 +95,7 @@ if (phpversion() > 5) {
     add_action('admin_menu', 'ranking_menu');
     function ranking_menu()
     {
-        add_menu_page('Ranking', 'Ranking', 5, 'ranking_menu', 'ranking_options_page');
+        add_menu_page('Ranking', 'Ranking', 8, 'ranking_menu', 'ranking_options_page');
         add_action('admin_init', 'register_ranking_settings');
     }
     function register_ranking_settings()
