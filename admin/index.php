@@ -60,10 +60,18 @@
 	                </tr>
 	                <tr>
 	                    <th scope="row">
-	                        <label for="wmp_loginuser">ログインユーザーのアクセスを除外：</label>
+	                        <label for="wmp_loginuser">ログインユーザーのアクセスをカウントしない：</label>
 	                    </th>
 	                    <td>
 	                    	 <input type="checkbox" id="wmp_loginuser" name="wmp_loginuser" <?php if(get_option('wmp_loginuser')=="on") echo 'checked="checked"'; ?>>
+	                    </td>
+	                </tr>
+					<tr>
+	                    <th scope="row">
+	                        <label for="wmp_split_single_page">分割ページのアクセスをカウントしない：</label>
+	                    </th>
+	                    <td>
+	                    	 <input type="checkbox" id="wmp_split_single_page" name="wmp_split_single_page" <?php if(get_option('wmp_split_single_page')=="on") echo 'checked="checked"'; ?>>
 	                    </td>
 	                </tr>
 	            </tbody>

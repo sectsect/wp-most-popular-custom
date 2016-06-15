@@ -1,47 +1,51 @@
 <?php
 class WMP_track {
 	private $post_id = NULL;
-	
-	public function __construct( $post_id ) {
+	private $paged = NULL;
+
+	public function __construct( $post_id, $paged ) {
 		$this->post_id = $post_id;
-		
+		$this->paged = $paged;
+
 		// Action to update stats
 		$this->update_stats();
 	}
-	
+
 	private function update_stats() {
 		global $wpdb;
-		
+
 		/*==================================================
 			Add code by SECT.
 		================================================== */
-		if(get_option('wmp_loginuser')=="on"){
+		if(get_option('wmp_loginuser') == "on" && get_option('wmp_split_single_page') == "on"){
+			$detect = $this->post_id && $this->paged <= 1 && !is_user_logged_in();
+		}elseif(get_option('wmp_loginuser') == "on" && get_option('wmp_split_single_page') != "on"){
 			$detect = $this->post_id && !is_user_logged_in();
+		}elseif(get_option('wmp_loginuser') != "on" && get_option('wmp_split_single_page') == "on"){
+			$detect = $this->post_id && $this->paged <= 1;
 		}else{
 			$detect = $this->post_id;
 		}
 		/*==================================================
 			Add code by SECT.
 		================================================== */
-		
-		
-		if ( $detect ) {			
+		if ( $detect ) {
 			// Get the existing raw stats
 			$raw_stats = $wpdb->get_var( $wpdb->prepare( "SELECT raw_stats FROM {$wpdb->prefix}most_popular WHERE post_id = '%d'", array( $this->post_id ) ) );
 			$date = gmdate('Y-m-d');
-			
+
 			if ( $raw_stats ) {
 				$raw_stats = unserialize( $raw_stats );
 			} else {
 				// Create a entry for this post
 				$wpdb->query( $wpdb->prepare( "INSERT INTO {$wpdb->prefix}most_popular (post_id, last_updated, 1_day_stats, 7_day_stats, 14_day_stats, 30_day_stats, all_time_stats, raw_stats) VALUES ('%d', NOW(), '0', '0', '0', '0', '0', '')", array( $this->post_id ) ) );
 			}
-			
+
 			$count_1 = $this->calculate_1_day_stats( $raw_stats, $date );
 			$count_7 = $this->calculate_7_day_stats( $raw_stats, $date );
 			$count_14 = $this->calculate_14_day_stats( $raw_stats, $date );
 			$count_30 = $this->calculate_30_day_stats( $raw_stats, $date );
-			
+
 			if ( isset( $row_stats ) && count( $raw_stats ) >= 30 ) {
 				array_shift( $raw_stats );
 				$raw_stats[$date] = 1;
@@ -51,17 +55,17 @@ class WMP_track {
 				} else {
 					$raw_stats[$date]++;
 				}
-			} 
-			
+			}
+
 			// Update our table with new figures
 			$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->prefix}most_popular SET 1_day_stats = '{$count_1}', 7_day_stats = '{$count_7}', 14_day_stats = '{$count_14}', 30_day_stats = '{$count_30}', all_time_stats = all_time_stats + 1, raw_stats = '%s' WHERE post_id = '%d'", array( serialize( $raw_stats ), $this->post_id ) ) );
 		}
 	}
-	
+
 	/**
 	 * TODO: Refactor functions below into 1 function
 	 */
-	
+
 	private function calculate_1_day_stats( $existing_stats, $date ) {
 		if ( $existing_stats ) {
 			if ( isset( $existing_stats[$date] ) ) {
@@ -70,7 +74,7 @@ class WMP_track {
 		}
 		return 1;
 	}
-	
+
 	private function calculate_7_day_stats( $existing_stats, $date ) {
 		if ( $existing_stats ) {
 			$extra_to_add = 0;
@@ -88,7 +92,7 @@ class WMP_track {
 		}
 		return 1;
 	}
-	
+
 	private function calculate_14_day_stats( $existing_stats, $date ) {
 		if ( $existing_stats ) {
 			$extra_to_add = 0;
@@ -106,7 +110,7 @@ class WMP_track {
 		}
 		return 1;
 	}
-	
+
 	private function calculate_30_day_stats( $existing_stats, $date ) {
 		if ( $existing_stats ) {
 			$extra_to_add = 0;

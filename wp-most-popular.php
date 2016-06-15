@@ -46,7 +46,14 @@ if (phpversion() > 5) {
             }
 
             include_once(WMP_PATH . 'system/track.php');
-            $track = new WMP_track(intval($_POST['id']));
+			/*==================================================
+				Add code by SECT.
+			================================================== */
+		//	$track = new WMP_track(intval($_POST['id']));
+            $track = new WMP_track(intval($_POST['id']), intval($_POST['paged']));
+			/*==================================================
+				Add code by SECT.
+			================================================== */
         }
 
         public static function install()
@@ -62,7 +69,12 @@ if (phpversion() > 5) {
             wp_print_scripts('jquery');
             $token = wp_create_nonce('wmp_token');
             if (! is_front_page() && (is_page() || is_single())) {
-                echo '<!-- WordPress Most Popular --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular -->';
+				/*==================================================
+					Add code by SECT.
+				================================================== */
+            //    echo '<!-- WordPress Most Popular --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular -->';
+				$paged = (get_query_var('page')) ? get_query_var('page') : 1;
+				echo '<!-- WordPress Most Popular Custom --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', paged: ' . $paged . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular Custom -->';
             }
         }
 
@@ -102,6 +114,7 @@ if (phpversion() > 5) {
     {
         register_setting('ranking-settings-group', 'wmp_range');
         register_setting('ranking-settings-group', 'wmp_loginuser');
+		register_setting('ranking-settings-group', 'wmp_split_single_page');
     }
     function ranking_options_page()
     {
