@@ -14,8 +14,8 @@
 
 #### Added Feature
  - Settings page
- - Exclude the login user access
- - Exclude access to the split single page
+ - Exclude the login user access (optional)
+ - Exclude access to the split single page (optional)
  - Add the Date range "biweekly (2w)"
 
 #### Example: Sub Query💀
