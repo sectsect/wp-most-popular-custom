@@ -9,11 +9,14 @@
  2. Unzip the file.  
  3. Upload the cfs-loop-field-query directory to your /wp-content/plugins/ directory.  
  4. Activate the plugin through the 'Plugins' menu in WordPress.  
- 💀Caution: If you are a on a multi-site, you must be activated on the child-site.💀  
- You can access the some setting by going to Settings -> CFS Loop Field Query.
- 5. Setting "Post Type Name", "Loop Field Name", "Date Field Name in Loop Feld".  
- That's it. The main query of your select post types will be rewritten.
+ 💀**Caution**: If you are a on a multi-site, you must be activated on the child-site.💀  
+ You can access the some setting by going to 'Ranking'.
 
+#### Added Feature
+ - Settings page
+ - Exclude the login user access
+ - Exclude access to the split single page
+ - Add the Date range "biweekly (2w)"
 
 #### Example: Sub Query💀
 	<ul>
