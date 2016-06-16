@@ -1,10 +1,10 @@
 <?php
 /*
     Plugin Name: WP Most Popular Custom
-    Plugin URI: https://www.ilovesect.com/
+    Plugin URI: https://github.com/sectsect/wp-most-popular-custom
     Description: Flexible plugin to show most popular posts based on views (This Plugin based on WP Most Popular)
     Version: 0.2.0
-    Author: SECT
+    Author: SECT INTERACTIVE AGENCY
     Author URI: https://www.ilovesect.com/
     License: GPL2
 
