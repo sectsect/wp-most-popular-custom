@@ -60,7 +60,7 @@
 	                </tr>
 	                <tr>
 	                    <th scope="row">
-	                        <label for="wmp_loginuser">ログインユーザーのアクセスをカウントしない：</label>
+	                        <label for="wmp_loginuser">Exclude the login user access：</label>
 	                    </th>
 	                    <td>
 	                    	 <input type="checkbox" id="wmp_loginuser" name="wmp_loginuser" <?php if(get_option('wmp_loginuser')=="on") echo 'checked="checked"'; ?>>
@@ -68,7 +68,7 @@
 	                </tr>
 					<tr>
 	                    <th scope="row">
-	                        <label for="wmp_split_single_page">分割ページのアクセスをカウントしない：</label>
+	                        <label for="wmp_split_single_page">Exclude access to the split single page：</label>
 	                    </th>
 	                    <td>
 	                    	 <input type="checkbox" id="wmp_split_single_page" name="wmp_split_single_page" <?php if(get_option('wmp_split_single_page')=="on") echo 'checked="checked"'; ?>>
