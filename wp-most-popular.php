@@ -2,26 +2,23 @@
 /*
     Plugin Name: WP Most Popular Custom
     Plugin URI: http://www.ilovesect.com/
-    Description: Flexible plugin to show most popular posts based on views
+    Description: Flexible plugin to show most popular posts based on views (This Plugin based on WP Most Popular)
     Version: 0.2.0
     Author: SECT
     Author URI: http://www.ilovesect.com/
     License: GPL2
 
-    Copyright 2015 SECT (email: info@sectwebstudio.com)
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as
-    published by the Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+	Copyright 2011 Matt Geri (email: matt@mattgeri.com)
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License, version 2, as
+	published by the Free Software Foundation.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 if (phpversion() > 5) {
