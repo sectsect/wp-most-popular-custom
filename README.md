@@ -1,6 +1,6 @@
 # WP Most Popular Custom
 
-### This Plugin based on [WP Most Popular](https://github.com/MattGeri/WP-Most-Popular)
+### This Plugin based on [WP Most Popular](https://github.com/MattGeri/WP-Most-Popular) by [Matt Geri](https://github.com/MattGeri)
 
 #### Installation
  1. `cd /path-to-your/wp-content/plugins/`
