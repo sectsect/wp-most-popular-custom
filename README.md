@@ -11,9 +11,9 @@
 
 #### Added Feature
  - Settings page
- - Exclude the login user access (optional)
- - Exclude access to the split single page (optional)
- - Add the Date range "biweekly (2w)"
+ - Settings for exclude the login user access (optional)
+ - Settings for exclude access to the split single page (optional)
+ - Add the Date range `biweekly (2w)`
 
 #### Usage Example
 ``` php
