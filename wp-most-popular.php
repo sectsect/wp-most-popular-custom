@@ -98,13 +98,18 @@ if (phpversion() > 5) {
     add_action('widgets_init', 'WMP_system::widget');
 
 
+	add_action( 'plugins_loaded', 'wpmpc_load_textdomain' );
+    function wpmpc_load_textdomain() {
+    	load_plugin_textdomain( 'wpmpc', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+    }
     /*==================================================
         オプションページ追加
     ================================================== */
     add_action('admin_menu', 'ranking_menu');
     function ranking_menu()
     {
-        $page_hook_suffix = add_menu_page('Ranking', 'Ranking', 8, 'ranking_menu', 'ranking_options_page');
+		$page_hook_suffix = add_options_page('WP Most Popular Custom', 'WP Most Popular Custom', 8, 'ranking_menu', 'ranking_options_page');
+    //    $page_hook_suffix = add_menu_page('Ranking', 'Ranking', 8, 'ranking_menu', 'ranking_options_page');
 	    add_action('admin_print_styles-' . $page_hook_suffix, 'ranking_admin_styles');
 	    add_action('admin_print_scripts-' . $page_hook_suffix, 'ranking_admin_scripts');    // @ https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_enqueue_script#.E3.83.97.E3.83.A9.E3.82.B0.E3.82.A4.E3.83.B3.E7.AE.A1.E7.90.86.E7.94.BB.E9.9D.A2.E3.81.AE.E3.81.BF.E3.81.A7.E3.82.B9.E3.82.AF.E3.83.AA.E3.83.97.E3.83.88.E3.82.92.E3.83.AA.E3.83.B3.E3.82.AF.E3.81.99.E3.82.8B
 
