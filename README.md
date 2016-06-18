@@ -12,8 +12,8 @@
 #### Added Feature
  - Settings page
  - button to delete all count data
- - Settings for exclude the login user access (optional)
- - Settings for exclude access to the split single page (optional)
+ - Setting for exclude the login user access (optional)
+ - Setting for exclude access to the split single page (optional)
  - Add the Date range `biweekly (2w)`
 
 #### Usage Example
@@ -39,3 +39,6 @@
 	<?php endif; ?>
 </ul>
 ```
+#### Translations
+
+* Japanese (ja)
