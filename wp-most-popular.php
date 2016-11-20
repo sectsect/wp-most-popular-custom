@@ -71,7 +71,12 @@ if (phpversion() > 5) {
 				================================================== */
             //    echo '<!-- WordPress Most Popular --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular -->';
 				$paged = (get_query_var('page')) ? get_query_var('page') : 1;
-				echo '<!-- WordPress Most Popular Custom --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', paged: ' . $paged . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular Custom -->';
+				// echo '<!-- WordPress Most Popular Custom --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', paged: ' . $paged . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular Custom -->';
+				$script = '
+				/* WordPress Most Popular Custom */
+				jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', paged: ' . $paged . ', token: "' . $token . '" });
+				';
+				wp_add_inline_script('jquery', $script);
             }
         }
 
@@ -98,9 +103,9 @@ if (phpversion() > 5) {
     add_action('widgets_init', 'WMP_system::widget');
 
 
-	add_action( 'plugins_loaded', 'wpmpc_load_textdomain' );
+	add_action('plugins_loaded', 'wpmpc_load_textdomain');
     function wpmpc_load_textdomain() {
-    	load_plugin_textdomain( 'wpmpc', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+    	load_plugin_textdomain('wpmpc', false, plugin_basename(dirname(__FILE__)) . '/languages');
     }
     /*==================================================
         Add option page
