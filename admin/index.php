@@ -50,7 +50,7 @@
 	                    <td>
 	                    	<select id="wmp_range" name="wmp_range">
 								<option value="all_time" <?php if(get_option('wmp_range')=="all_time") echo "selected=selected"; ?>>all_time</option>
-								<option value="monthly" <?php if(get_option('wmp_range')=="monthly") echo "selected=selected"; ?>>monthly (1momnth)</option>
+								<option value="monthly" <?php if(get_option('wmp_range')=="monthly") echo "selected=selected"; ?>>monthly (1month)</option>
 								<option value="biweekly" <?php if(get_option('wmp_range')=="biweekly") echo "selected=selected"; ?>>biweekly (2weeks)</option>
 								<option value="weekly" <?php if(get_option('wmp_range')=="weekly") echo "selected=selected"; ?>>weekly (1week)</option>
 								<option value="daily" <?php if(get_option('wmp_range')=="daily") echo "selected=selected"; ?>>daily (1day)</option>
