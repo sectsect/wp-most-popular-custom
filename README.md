@@ -7,7 +7,7 @@
 ##### 1. Clone this Repo into your `wp-content/plugins` directory.
 ```sh
 $ cd /path-to-your/wp-content/plugins/
-$ git clone git@github.com:sectsect/google-spreadsheet-to-db.git
+$ git clone git@github.com:sectsect/wp-most-popular-custom.git
 ```
 
 ##### 2. Activate the plugin through the 'Plugins' menu in WordPress.  
