@@ -63,15 +63,20 @@ if (phpversion() > 5) {
         {
             global $wp_query;
             wp_reset_query();
-            wp_print_scripts('jquery');
-            $token = wp_create_nonce('wmp_token');
-            if (! is_front_page() && (is_page() || is_single())) {
-				/*==================================================
-					Add code by SECT.
-				================================================== */
-            //    echo '<!-- WordPress Most Popular --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular -->';
-				$paged = (get_query_var('page')) ? get_query_var('page') : 1;
-				echo '<script>jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', paged: ' . $paged . ', token: "' . $token . '" });</script>';
+            // wp_print_scripts('jquery');
+
+            $handle = 'jquery';
+            $list = 'enqueued';
+            if ( wp_script_is( $handle, $list ) ) {
+				$token = wp_create_nonce('wmp_token');
+	            if (! is_front_page() && (is_page() || is_single())) {
+					/*==================================================
+						Add code by SECT.
+					================================================== */
+	            //    echo '<!-- WordPress Most Popular --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular -->';
+					$paged = (get_query_var('page')) ? get_query_var('page') : 1;
+					echo '<script>jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', paged: ' . $paged . ', token: "' . $token . '" });</script>';
+	            }
             }
         }
 
