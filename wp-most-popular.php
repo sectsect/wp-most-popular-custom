@@ -71,12 +71,7 @@ if (phpversion() > 5) {
 				================================================== */
             //    echo '<!-- WordPress Most Popular --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular -->';
 				$paged = (get_query_var('page')) ? get_query_var('page') : 1;
-				// echo '<!-- WordPress Most Popular Custom --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', paged: ' . $paged . ', token: "' . $token . '" }); /* ]]> */</script><!-- /WordPress Most Popular Custom -->';
-				$script = '
-				/* WordPress Most Popular Custom */
-				jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', paged: ' . $paged . ', token: "' . $token . '" });
-				';
-				wp_add_inline_script('jquery', $script);
+				echo '<script>jQuery.post("' . admin_url('admin-ajax.php') . '", { action: "wmp_update", id: ' . $wp_query->post->ID . ', paged: ' . $paged . ', token: "' . $token . '" });</script>';
             }
         }
 
