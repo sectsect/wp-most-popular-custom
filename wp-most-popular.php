@@ -38,7 +38,7 @@ if (phpversion() > 5) {
         public static function actions()
         {
             // Check for token
-            if (! wp_verify_nonce($_POST['token'], 'wmp_token')) {
+            if (! wp_verify_nonce(wp_unslash($_POST['token']), 'wmp_token')) {
                 die();
             }
 
@@ -47,7 +47,7 @@ if (phpversion() > 5) {
 				Add code by SECT.
 			================================================== */
 		//	$track = new WMP_track(intval($_POST['id']));
-            $track = new WMP_track(intval($_POST['id']), intval($_POST['paged']));
+			$track = new WMP_track(intval(wp_unslash($_POST['id'])), intval(wp_unslash($_POST['paged'])));
 			/*==================================================
 				Add code by SECT.
 			================================================== */
