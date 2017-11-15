@@ -29,24 +29,24 @@ You can access the some setting by going to `Settings` -> `WP Most Popular Custo
 ## Usage Example
 ``` php
 <ul>
-	<?php if (class_exists('WMP_system')): ?>
-		<?php
-			$wmpposts = wmp_get_popular( array(
-				'limit'		=> 5,
-				'post_type'	=> array('post'),
-				'range'		=> get_option('wmp_range')
-			));
-			$i = 1;
-			if ( count( $wmpposts ) > 0 ): foreach ( $wmpposts as $post ): setup_postdata( $post );
-		?>
-			<li id="rank-<?php echo sprintf("%02d",$i); ?>">
-				<a href="<?php the_permalink(); ?>">
-					<?php the_title(); ?>
-				</a>
-			</li>
-			<?php $i++; ?>
-		<?php endforeach; endif; wp_reset_postdata(); ?>
-	<?php endif; ?>
+  <?php if ( class_exists( 'WMP_system' ) ): ?>
+  <?php
+  $wmpposts = wmp_get_popular( array(
+    'limit'		=> 5,
+    'post_type'	=> array('post'),
+    'range'		=> get_option('wmp_range')
+  ));
+  $i = 1;
+  if ( count( $wmpposts ) > 0 ): foreach ( $wmpposts as $post ): setup_postdata( $post );
+  ?>
+    <li id="rank-<?php echo sprintf( "%02d", $i ); ?>">
+      <a href="<?php the_permalink(); ?>">
+        <?php the_title(); ?>
+      </a>
+    </li>
+    <?php $i++; ?>
+    <?php endforeach; endif; wp_reset_postdata(); ?>
+  <?php endif; ?>
 </ul>
 ```
 ## Translations
