@@ -27,14 +27,14 @@ You can access the some setting by going to `Settings` -> `WP Most Popular Custo
    - daily (1day)
 
 ## Usage Example
-``` php
+```php
 <ul>
   <?php if ( class_exists( 'WMP_system' ) ): ?>
   <?php
   $wmpposts = wmp_get_popular( array(
-    'limit'		=> 5,
-    'post_type'	=> array('post'),
-    'range'		=> get_option('wmp_range')
+    'limit'     => 5,
+    'post_type' => array('post'),
+    'range'     => get_option('wmp_range')
   ));
   $i = 1;
   if ( count( $wmpposts ) > 0 ): foreach ( $wmpposts as $post ): setup_postdata( $post );
