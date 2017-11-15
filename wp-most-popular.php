@@ -122,11 +122,11 @@ if (phpversion() > 5) {
     }
 	function ranking_admin_styles()
 	{
-	    wp_enqueue_style('select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css', array());
+	    wp_enqueue_style('select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css', array());
 	}
 	function ranking_admin_scripts()
 	{
-	    wp_enqueue_script('select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', array('jquery'));
+	    wp_enqueue_script('select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js', array('jquery'));
 	    wp_enqueue_script('script', plugin_dir_url(__FILE__) . 'admin/js/script.js', array('select2'));
 	}
     function register_ranking_settings()
